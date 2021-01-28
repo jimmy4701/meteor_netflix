@@ -16,6 +16,7 @@ const SigninForm = (props) => {
 
     return(
         <CustomForm onSubmit={login}>
+            <h1>CONNECTEZ VOUS</h1>
             <input type="email" placeholder="Votre email" value={email} onChange={e => setEmail(e.target.value)} />
             <input type="password" placeholder="Mot de passe" value={password} onChange={e => setPassword(e.target.value)}/>
             <Button>S'identifier</Button>

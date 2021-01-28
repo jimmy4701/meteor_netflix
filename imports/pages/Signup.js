@@ -1,24 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import Button from '../components/Button'
+import SignupForm from '../components/SignupForm'
+import { useHistory } from 'react-router-dom'
 
-const Landing = () => {
+const Signup = () => {
+    const history = useHistory()
+
+    const redirect_user = () => {
+        history.push('/home')
+    }
 
   return (
     <MainContainer>
       <Header>
-        <h1>Films, séries TV, et bien plus<br/>en illimité.</h1>
-        <h3>Où que vous soyez. Annulez à tout moment.</h3>
-        <p>Prêt à regarder Netflix ? Saisissez votre adresse e-mail pour vous abonner ou réactiver votre abonnement.</p>
-        
-        <Link to="/login">
-          <Button>Se connecter</Button>
-        </Link>
-        
-        <Link to="/signup">
-          <Button>Créer un compte</Button>
-        </Link>
+       <SignupForm onSignup={redirect_user} />
       </Header>
     </MainContainer>
   );
@@ -43,4 +38,4 @@ const Header = styled.div`
   justify-content: center;
 `
 
-export default Landing;
+export default Signup;

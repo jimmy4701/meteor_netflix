@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Home from '../pages/Home'
 import Landing from '../pages/Landing'
 import Signin from '../pages/Signin'
+import Signup from '../pages/Signup'
 import Navbar from '../components/Navbar'
 
 const MainRouter = () => {
@@ -13,6 +14,7 @@ const MainRouter = () => {
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={Signin} />
+          <Route exact path="/signup" component={Signup} />
           <Route path="/home" component={Home} />
         </Switch>
       </Router>
