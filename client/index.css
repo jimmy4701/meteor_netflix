@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Segoe UI';
+}
+
+
+.movie-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+    padding-left: 3em;
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .movie-title {
+    font-size: 5em;
+    color: white;
+    margin: 0;
+  }
+  
+  .type-container {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .type-container img {
+    height: 2em;
+  }
+  
+  .buttons-container {
+    display: flex;
+    margin-top: 1em;
+  }
+  
+  button {
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 0.2em;
+    font-size: 1.3em;
+    margin-right: 1em;
+  }
+  
+  button.clear {
+    background-color: rgba(255,255,255, 0.3);
+    color: white;
+  }
+  
+  button:hover {
+    background-color: rgb(185, 185, 185);
+    transition: all 0.5s;
+  }
