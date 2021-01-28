@@ -1,13 +1,25 @@
 import React, {useContext, useState} from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Button from './Button'
+import {useTracker} from 'meteor/react-meteor-data'
 
 const Navbar = (props) => {
 
-    const logout = () => {
+    const history = useHistory()
+    const {user, loggingIn} = useTracker(() => {
         
+        return {
+            user: Meteor.user(),
+            loggingIn: Meteor.loggingIn()
+        }
+    })
+
+    const logout = () => {
+        Meteor.logout()
+        history.push("/")
     }
+
 
     return(
         <MainContainer>
@@ -25,16 +37,16 @@ const Navbar = (props) => {
                 } */}
             </LeftContainer>
             <RightContainer>
-                {/* {user ?
-                    <CustomLink to="/" onClick={logout}>Se déconnecter ({user.username})</CustomLink>
-                // :
-                //     <CustomLink to="/login">
-                //         <CustomButton >S'identifier</CustomButton>
-                //     </CustomLink>
-                // }
+                {user ?
+                    <>
+                        {user.emails[0].address}
+                        <CustomButton onClick={logout} >Déconnexion</CustomButton>
+                    </>
                 :
-                        <CustomButton onClick={() => setModal(true)} >S'identifier</CustomButton>
-                } */}
+                    <CustomLink to="/login">
+                        <CustomButton>Se connecter</CustomButton>
+                    </CustomLink>
+                }
             </RightContainer>
         </MainContainer>
     )

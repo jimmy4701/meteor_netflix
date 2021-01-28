@@ -9,9 +9,13 @@ const SigninForm = (props) => {
 
     const login = (e) => {
         e.preventDefault()
-        if(props.onLogin){
-            props.onLogin()
-        }
+
+        Meteor.loginWithPassword(email, password, (err, data) => {
+            if(err) return alert(err.message)
+            if(props.onLogin){
+                props.onLogin()
+            }
+        })
     }
 
     return(
